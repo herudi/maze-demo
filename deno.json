@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns",
+      "deno.unstable"
+    ],
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment"
+  },
+  "fmt": {
+    "files": {
+      "exclude": [
+        "@shared/",
+        "public/",
+        "server_prod.js"
+      ]
+    }
+  },
+  "lint": {
+    "files": {
+      "exclude": [
+        "@shared/",
+        "public/",
+        "server_prod.js"
+      ]
+    }
+  },
+  "importMap": "./import_map.json"
+}
