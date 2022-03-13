@@ -15,6 +15,6 @@ export const initApp = async (appCallback?: (app: NHttp<ReqEvent>) => any) => {
     pages: pages,
     server_pages: server_pages,
     apis: apis,
-    cwd: Deno.cwd()
+    meta_url: import.meta.url
   }, appCallback);
 };
