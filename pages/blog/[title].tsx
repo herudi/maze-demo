@@ -8,17 +8,16 @@ const { Link } = Router;
 
 class BlogDetail extends Component<PageProps> {
   static async initProps({ fetchApi, params }: RequestEvent) {
-    const { data, error } = await fetchApi("/api/blog/" + params.title);
+    const { data, error } = await fetchApi("/api/blog/" + params.title.replace(/\-/g, " "));
     return { data, error };
   }
 
   render() {
     if (this.props.error) return <ErrorPage {...this.props.error} />;
-    const route = this.props.route;
     return (
       <div>
         <Helmet>
-          <title>{route.params.title}</title>
+          <title>{this.props.data.title}</title>
         </Helmet>
         <div class={tw`bg-white flex h-screen dark:bg-gray-800`}>
           <div class={tw`max-w-5xl mx-auto px-4 pb-28 mt-10 sm:px-6 md:px-8 xl:px-12 xl:max-w-6xl`}>
@@ -27,7 +26,7 @@ class BlogDetail extends Component<PageProps> {
                 January, 12 2030
               </div>
               <h1 class={tw`col-span-full text-3xl sm:text-4xl sm:text-center xl:mb-16 font-extrabold tracking-tight dark:text-white`}>
-                {route.params.title}
+                {this.props.data.title}
               </h1>
               <p class={tw`mb-20 dark:text-white`}>{this.props.data.body}</p>
               <Link

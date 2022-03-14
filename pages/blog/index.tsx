@@ -43,7 +43,7 @@ class Blog extends Component<PageProps> {
                       January, 12 2030
                     </div>
                     <Link
-                      to={"/blog/" + el.title}
+                      to={"/blog/" + el.title.replace(/\s/g, "-")}
                       class={tw`px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100 dark:(bg-gray-900 text-gray-200)`}>
                       Read More
                     </Link>
