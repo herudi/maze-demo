@@ -25,4 +25,4 @@ export const pages: any = [
     methods: ($3 as any).methods
   },
 ];
-export const tt: string = '1647237103850';
+export const tt: string = '1647239933410';

@@ -11,22 +11,7 @@ export default function App({ Page, props }: AppProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="data:," />
-        <script>
-          {
-            `if (
-  localStorage.getItem('theme') === 'dark' ||
-  (!('theme' in localStorage) &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
-  document.documentElement.classList.add('dark');
-  window.__btn_switch = "Dark";
-} else {
-  document.documentElement.classList.remove('dark');
-  window.__btn_switch = "Light";
-}
-`
-          }
-        </script>
+        <script src="/assets/theme.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js">
         </script>
         <link
