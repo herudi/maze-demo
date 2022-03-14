@@ -6,7 +6,10 @@ export default async function handler(rev: RequestEvent) {
     const data = await (await fetch(
       `https://jsonplaceholder.typicode.com/posts?title=${rev.params.title}`,
     )).json();
-    return data[0] || {};
+    if (!data[0]) {
+      throw new HttpError(404, "Data not found");
+    }
+    return data[0];
   }
   throw new HttpError(405, "method not allowed");
 }

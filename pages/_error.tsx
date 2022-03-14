@@ -14,7 +14,7 @@ export default function ErrorPage(
         <script src="/assets/theme.js"></script>
         <title>{status} {message}</title>
       </Helmet>
-      <div class={tw`flex items-center justify-center w-screen h-screen bg-white dark:bg-gray-800`}>
+      <div class={tw`flex justify-center w-full h-screen bg-white dark:bg-gray-800`}>
         <div class={tw`px-40 py-20 rounded-md`}>
           <div class={tw`flex flex-col items-center`}>
             <h1 class={tw`font-bold text-blue-600 text-9xl`}>{status}</h1>
