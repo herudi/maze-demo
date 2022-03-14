@@ -20,19 +20,19 @@ class BlogDetail extends Component<PageProps> {
         <Helmet>
           <title>{route.params.title}</title>
         </Helmet>
-        <div class={tw`bg-white flex h-screen`}>
+        <div class={tw`bg-white flex h-screen dark:bg-gray-800`}>
           <div class={tw`max-w-5xl mx-auto px-4 pb-28 mt-10 sm:px-6 md:px-8 xl:px-12 xl:max-w-6xl`}>
             <div>
-              <div class={tw`text-sm sm:text-center`}>
+              <div class={tw`text-sm sm:text-center dark:text-white`}>
                 January, 12 2030
               </div>
-              <h1 class={tw`col-span-full text-3xl sm:text-4xl sm:text-center xl:mb-16 font-extrabold tracking-tight`}>
+              <h1 class={tw`col-span-full text-3xl sm:text-4xl sm:text-center xl:mb-16 font-extrabold tracking-tight dark:text-white`}>
                 {route.params.title}
               </h1>
-              <p class={tw`mb-20`}>{this.props.data.body}</p>
+              <p class={tw`mb-20 dark:text-white`}>{this.props.data.body}</p>
               <Link
                 to={"/blog"}
-                class={tw`px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100`}>
+                class={tw`px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100 dark:(bg-gray-900 text-gray-200)`}>
                 Back
               </Link>
             </div>

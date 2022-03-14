@@ -32,17 +32,17 @@ class Sign extends Component<PageProps> {
         </Helmet>
         <div
           class={tw
-            `min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}
+            `h-screen flex justify-center py-12 px-4 sm:px-6 lg:px-8 dark:bg-gray-800`}
         >
           <div class={tw`max-w-sm w-full space-y-8`}>
             <div>
               <h2
                 class={tw
-                  `mt-6 text-center text-3xl font-extrabold text-gray-900`}
+                  `mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white`}
               >
                 Sign Page
               </h2>
-              <p class={tw`text-center`}>(Example handle formData)</p>
+              <p class={tw`text-center dark:text-white`}>(Example handle formData)</p>
               {this.props.message && (
                 <div
                   class={tw

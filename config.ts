@@ -1,6 +1,8 @@
 import { RequestEvent } from "types";
 // twind setup options.
-export const twind_setup = {};
+export const twind_setup = {
+  darkMode: "class"
+};
 
 // hydrate part to id "__MY_PAGE__" if pathname startsWith "/"
 export const hydrate_setup = ({ pathname }: RequestEvent) => {
