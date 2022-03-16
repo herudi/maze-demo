@@ -6,6 +6,7 @@ import apis from "./result/apis.ts";
 import { twind_setup } from "../config.ts";
 import { pages } from "./result/pages.ts";
 import { pages as server_pages } from "./result/server_pages.ts";
+import { BUILD_ID } from './result/constant.ts';
 
 export const initApp = (url: string, appCallback?: (app: NHttp<ReqEvent>) => any) => {
   return baseInitApp({
@@ -16,5 +17,6 @@ export const initApp = (url: string, appCallback?: (app: NHttp<ReqEvent>) => any
     server_pages: server_pages,
     apis: apis,
     meta_url: url,
+    build_id: BUILD_ID,
   }, appCallback);
 };

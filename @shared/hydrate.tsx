@@ -1,11 +1,12 @@
 /** @jsx h */
 import { h, hydrate } from "nano-jsx";
 import { setup } from "twind";
-import { pages, tt } from "./result/pages.ts";
+import { pages } from "./result/pages.ts";
 import RootApp from "./root_app.tsx";
 import { twind_setup, hydrate_setup } from "../config.ts";
 import { RequestEvent } from "types";
 import ErrorPage from "../pages/_error.tsx";
+import { BUILD_ID } from './result/constant.ts';
 
 type ReqEvent = RequestEvent & {
   render: (elem: any, id?: string) => any;
@@ -130,7 +131,7 @@ export default class ClassicRouter {
 }
 
 async function lazy(url: string) {
-  const mod = (await import(url + "?v=" + tt)).default;
+  const mod = (await import(url + "?v=" + BUILD_ID)).default;
   return mod;
 }
 
