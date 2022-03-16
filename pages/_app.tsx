@@ -19,7 +19,7 @@ export default function App({ Page, props }: AppProps) {
           rel="stylesheet"
         />
       </Helmet>
-      <Navbar route={props.route} />
+      <Navbar {...props} />
       <div id="__MY_PAGE__"><Page {...props} /></div>
     </div>
   );

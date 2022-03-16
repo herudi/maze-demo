@@ -1,15 +1,21 @@
 /** @jsx h */
 import { Component, h, Router } from "nano-jsx";
 import { tw } from "twind";
+import { PageProps } from "types";
 
 const { Link } = Router;
 const active = "bg-gray-200 text-gray-900 dark:(bg-gray-900 text-white) px-3 py-2 rounded-md text-sm font-medium";
 const in_active = "text-gray-900 hover:bg-gray-300 hover:text-gray-900 dark:(text-gray-300 hover:bg-gray-700 hover:text-white) px-3 py-2 rounded-md text-sm font-medium";
 const btn_switch = "bg-gray-300 text-gray-900 dark:(bg-gray-700 text-white) px-3 py-2 rounded-md text-sm font-medium";
 
-export default class Navbar extends Component {
-
-  text_switch = (window as any).__btn_switch || ".";
+export default class Navbar extends Component<PageProps> {
+  text_switch = ".";
+  constructor(props: PageProps) {
+    super(props);
+    if (!props.isServer) {
+      this.text_switch = (window as any).__btn_switch;
+    }
+  }
 
   didMount() {
     addEventListener("page:end", () => {
