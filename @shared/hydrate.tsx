@@ -145,6 +145,8 @@ window.addEventListener("load", () => {
     router.add(obj.path, async (rev) => {
       rev.isFirst = first;
       try {
+        const target_id = hydrate_setup(rev);
+        if (!target_id && !first) return window.location.href = rev.url;
         let rootData = {};
         if (!first) {
           rootData = RootApp.initProps ? (await RootApp.initProps(rev)) : {};
@@ -177,23 +179,18 @@ window.addEventListener("load", () => {
           initRender();
         } else {
           const myInitData = { ...initData, ...rootData };
-          const target_id = hydrate_setup(rev);
-          if (!target_id) {
-            rev.render(<ErrorPage message="Not Found" status={404} />);
-          } else {
-            rev.render(
-              <Page
-                {...myInitData}
-                route={{
-                  pathname: rev.pathname,
-                  url: rev.url,
-                  path: obj.path,
-                  params: rev.params,
-                }}
-                isServer={false}
-              />, target_id
-            );
-          }
+          rev.render(
+            <Page
+              {...myInitData}
+              route={{
+                pathname: rev.pathname,
+                url: rev.url,
+                path: obj.path,
+                params: rev.params,
+              }}
+              isServer={false}
+            />, target_id
+          );
         }
         if (RootApp.event.onEnd !== void 0) {
           RootApp.event.onEnd(rev);

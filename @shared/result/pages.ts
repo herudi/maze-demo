@@ -17,4 +17,4 @@ export const pages = [
     page: './sign.js'
   },
 ];
-export const tt: string = '1647242238334';
+export const tt: string = '1647393009396';
