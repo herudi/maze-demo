@@ -6,7 +6,7 @@ import RootApp from "./root_app.tsx";
 import { twind_setup, hydrate_setup } from "../config.ts";
 import { RequestEvent } from "types";
 import ErrorPage from "../pages/_error.tsx";
-import { BUILD_ID } from './result/constant.ts';
+import { BUILD_ID } from "./result/constant.ts";
 
 type ReqEvent = RequestEvent & {
   render: (elem: any, id?: string) => any;
