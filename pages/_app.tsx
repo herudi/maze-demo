@@ -3,6 +3,11 @@ import { h, Helmet } from "nano-jsx";
 import { AppProps, RequestEvent } from "types";
 import Navbar from "../components/navbar.tsx";
 
+function setLoading(bool: boolean) {
+  const loading = document.getElementById("loading") as any;
+  loading.style.display = bool ? "block" : "none";
+}
+
 export default function App({ Page, props }: AppProps) {
   return (
     <div>
@@ -12,13 +17,14 @@ export default function App({ Page, props }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="data:," />
         <script src="/assets/theme.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js">
-        </script>
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-          rel="stylesheet"
-        />
+        <link href="/assets/loading.css" rel="stylesheet" />
       </Helmet>
+      <div id="loading" class="center-div-loading" style="display: none;">
+        <div class="linear-progress-material">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+        </div>
+      </div>
       <Navbar {...props} />
       <div id="__MY_PAGE__"><Page {...props} /></div>
     </div>
@@ -30,23 +36,22 @@ let timeout: number | undefined;
 
 App.event = {
   onStart(rev: RequestEvent) {
-    rev.NProgress = (window as any).NProgress;
-    // example use NProgress after first load.
     if (!rev.isFirst) {
       timeout = setTimeout(() => {
-        rev.NProgress.start();
+        setLoading(true);
       }, 300);
     }
   },
-  onEnd({ isFirst, NProgress }: RequestEvent) {
+  onEnd({ isFirst }: RequestEvent) {
     if (timeout) clearTimeout(timeout);
-    NProgress.done();
+    setLoading(false);
     if (!isFirst) {
       dispatchEvent(new Event("page:end"));
       window.scrollTo(0, 0);
     }
   },
   onError(err: Error) {
+    setLoading(false);
     // print log error
     console.error(err);
   },
