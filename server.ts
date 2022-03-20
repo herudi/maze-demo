@@ -1,6 +1,6 @@
 import { initApp } from "./@shared/http.ts";
 
-initApp("https://raw.githubusercontent.com/herudi/maze-demo/master/public", {
+initApp(import.meta.url, {
   staticConfig: ({ response, env }) => {
     // example cache in production
     if (env === 'production') {
