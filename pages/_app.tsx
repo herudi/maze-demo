@@ -31,7 +31,7 @@ export default function App({ Page, props }: AppProps) {
   );
 }
 
-// example load NProgress showing if timeout > 300ms
+// example debounce loading show if > 300ms
 let timeout: number | undefined;
 
 App.event = {
