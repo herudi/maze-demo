@@ -11,6 +11,7 @@ class Blog extends Component<PageProps> {
     const { data, error } = await fetchApi("/api/blog");
     return { data, error };
   }
+  
   render() {
     if (this.props.error) return <ErrorPage {...this.props.error} />;
     return (
