@@ -2,7 +2,7 @@
 import { Component, h, Helmet, Router } from "nano-jsx";
 import { tw } from "twind";
 import { PageProps, RequestEvent } from "types";
-import ErrorPage from "../_error.tsx";
+import ErrorPage from "../_default/error.tsx";
 
 const { Link } = Router;
 

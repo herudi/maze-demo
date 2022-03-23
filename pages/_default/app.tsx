@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h, Helmet } from "nano-jsx";
 import { AppProps, RequestEvent } from "types";
-import Navbar from "../components/navbar.tsx";
+import Navbar from "../../components/navbar.tsx";
 
 function setLoading(bool: boolean) {
   const loading = document.getElementById("loading") as any;

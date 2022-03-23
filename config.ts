@@ -1,13 +1,13 @@
-import { RequestEvent } from "types";
-// twind setup options.
-export const twind_setup = {
-  darkMode: "class"
-};
+import { setup } from "twind";
+import twind_config from "./twind.config.ts";
 
-// hydrate part to id "__MY_PAGE__" if pathname startsWith "/"
-export const hydrate_setup = ({ pathname }: RequestEvent) => {
-  if (pathname.startsWith("/")) {
-    return "__MY_PAGE__";
+export default {
+
+  // target id
+  target: "__MY_PAGE__",
+
+  // set anything when hydrate
+  onHydrate: () => {
+    setup(twind_config);
   }
-  return void 0;
 }

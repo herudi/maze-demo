@@ -1,11 +1,10 @@
 /** @jsx h */
 import { h, hydrate } from "nano-jsx";
-import { setup } from "twind";
 import { pages } from "./result/pages.ts";
 import RootApp from "./root_app.tsx";
-import { twind_setup, hydrate_setup } from "../config.ts";
+import config from "../config.ts";
 import { RequestEvent } from "types";
-import ErrorPage from "../pages/_error.tsx";
+import ErrorPage from "../pages/_default/error.tsx";
 
 type ReqEvent = RequestEvent & {
   render: (elem: any, id?: string) => any;
@@ -133,9 +132,10 @@ async function lazy(url: string) {
   const mod = (await import(url)).default;
   return mod;
 }
+const { target, onHydrate } = config as any;
 
 window.addEventListener("load", () => {
-  setup(twind_setup);
+  onHydrate();
   let first = true;
   let init: any = document.getElementById("__INIT_DATA__");
   if (init) init = JSON.parse(init.textContent || "{}");
@@ -145,7 +145,7 @@ window.addEventListener("load", () => {
     router.add(obj.path, async (rev) => {
       rev.isFirst = first;
       try {
-        const target_id = hydrate_setup(rev);
+        const target_id = typeof target === 'string' ? target : target(rev);
         if (!target_id && !first) return window.location.href = rev.url;
         let rootData = {};
         if (!first) {

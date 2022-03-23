@@ -1,6 +1,6 @@
-import { initApp } from "./@shared/http.ts";
+import maze from "./@shared/maze.ts";
 
-initApp(import.meta.url, {
+maze(import.meta.url, {
   staticConfig: ({ response, env }) => {
     // example cache in production
     if (env === 'production') {
