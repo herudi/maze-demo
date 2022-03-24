@@ -1,6 +1,6 @@
 /** @jsx h */
-import { h, Helmet } from "nano-jsx";
-import { AppProps, RequestEvent } from "types";
+import { h, Helmet, Fragment } from "nano-jsx";
+import { AppProps, RequestEvent } from "maze";
 import Navbar from "../../components/navbar.tsx";
 
 function setLoading(bool: boolean) {
@@ -10,7 +10,7 @@ function setLoading(bool: boolean) {
 
 export default function App({ Page, props }: AppProps) {
   return (
-    <div>
+    <Fragment>
       <Helmet>
         <html lang="en" />
         <meta charset="utf-8" />
@@ -19,15 +19,15 @@ export default function App({ Page, props }: AppProps) {
         <script src="/assets/theme.js"></script>
         <link href="/assets/loading.css" rel="stylesheet" />
       </Helmet>
+      <Navbar {...props} />
+      <div id="__MY_PAGE__"><Page {...props} /></div>
       <div id="loading" class="center-div-loading" style="display: none;">
         <div class="linear-progress-material">
           <div class="bar bar1"></div>
           <div class="bar bar2"></div>
         </div>
       </div>
-      <Navbar {...props} />
-      <div id="__MY_PAGE__"><Page {...props} /></div>
-    </div>
+    </Fragment>
   );
 }
 

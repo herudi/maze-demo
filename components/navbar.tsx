@@ -1,7 +1,7 @@
 /** @jsx h */
 import { Component, h, Router } from "nano-jsx";
 import { tw } from "twind";
-import { PageProps } from "types";
+import { PageProps } from "maze";
 
 const { Link } = Router;
 const active = "bg-gray-200 text-gray-900 dark:(bg-gray-900 text-white) px-3 py-2 rounded-md text-sm font-medium";

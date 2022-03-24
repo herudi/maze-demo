@@ -1,7 +1,7 @@
 /** @jsx h */
-import { Component, h, Helmet } from "nano-jsx";
+import { Component, h, Helmet, Fragment } from "nano-jsx";
 import { tw } from "twind";
-import { PageProps } from "types";
+import { PageProps } from "maze";
 
 const style = {
   button: "text-2xl px-6 py-2 font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
@@ -17,7 +17,7 @@ export default class Home extends Component<PageProps> {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Helmet>
           <title>Hello Home Page</title>
         </Helmet>
@@ -42,7 +42,7 @@ export default class Home extends Component<PageProps> {
             </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

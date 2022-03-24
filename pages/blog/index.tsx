@@ -1,21 +1,21 @@
 /** @jsx h */
-import { Component, h, Helmet, Router } from "nano-jsx";
+import { Component, Fragment, h, Helmet, Router } from "nano-jsx";
 import { tw } from "twind";
-import { PageProps, RequestEvent } from "types";
+import { PageProps, InitProps } from "maze";
 import ErrorPage from "../_default/error.tsx";
 
 const { Link } = Router;
 
+@InitProps(async ({ fetchApi }) => {
+  const { data, error } = await fetchApi("/api/blog");
+  return { data, error };
+})
 class Blog extends Component<PageProps> {
-  static async initProps({ fetchApi }: RequestEvent) {
-    const { data, error } = await fetchApi("/api/blog");
-    return { data, error };
-  }
   
   render() {
     if (this.props.error) return <ErrorPage {...this.props.error} />;
     return (
-      <div>
+      <Fragment>
         <Helmet>
           <title>Hello Blog Page</title>
         </Helmet>
@@ -54,7 +54,7 @@ class Blog extends Component<PageProps> {
             </div>
           </main>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

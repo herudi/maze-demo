@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h, Helmet } from "nano-jsx";
+import { h, Helmet, Fragment } from "nano-jsx";
 import { tw } from "twind";
 
 export default function ErrorPage(
@@ -9,7 +9,7 @@ export default function ErrorPage(
   },
 ) {
   return (
-    <div>
+    <Fragment>
       <Helmet>
         <script src="/assets/theme.js"></script>
         <title>{status} {message}</title>
@@ -27,6 +27,6 @@ export default function ErrorPage(
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }

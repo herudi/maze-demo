@@ -1,5 +1,5 @@
 import { HttpError } from "nhttp";
-import { RequestEvent } from "types";
+import { RequestEvent } from "maze";
 
 export default async function handler(rev: RequestEvent) {
   if (rev.request.method == "GET") {

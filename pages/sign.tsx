@@ -1,32 +1,29 @@
 /** @jsx h */
-import { Component, h, Helmet } from "nano-jsx";
+import { Component, Fragment, h, Helmet } from "nano-jsx";
 import { tw } from "twind";
-import { PageProps, RequestEvent } from "types";
+import { PageProps, InitProps } from "maze";
 
 const style = {
   input:
     "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
 };
 
-class Sign extends Component<PageProps> {
-  // apply SignPage methods GET and POST (default ["GET"]).
-  static methods = ["GET", "POST"];
-
-  static async initProps(rev: RequestEvent) {
-    if (rev.isServer && rev.request.method === "POST") {
-      const { data } = await rev.fetchApi("/api/sign");
-      if (data.message === "success") {
-        // if success will redirect to home
-        return rev.response.redirect("/");
-      }
-      return { message: data.message };
+@InitProps(async (rev) => {
+  if (rev.isServer && rev.request.method === "POST") {
+    const { data } = await rev.fetchApi("/api/sign");
+    if (data.message === "success") {
+      // if success will redirect to home
+      return rev.response.redirect("/");
     }
-    return {};
+    return { message: data.message };
   }
+  return {};
+}, ["GET", "POST"])
+class Sign extends Component<PageProps> {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Helmet>
           <title>Sign Page</title>
         </Helmet>
@@ -82,7 +79,7 @@ class Sign extends Component<PageProps> {
                       name="password"
                       type="password"
                       class={tw`${style.input}`}
-                      placeholder="Password = deno"
+                      placeholder="Password = nanojsx"
                       requied
                     />
                   </div>
@@ -100,7 +97,7 @@ class Sign extends Component<PageProps> {
             </div>
           </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
