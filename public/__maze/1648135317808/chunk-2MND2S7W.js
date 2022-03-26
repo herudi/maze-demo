@@ -1,1 +1,0 @@
-import{a as m}from"./chunk-UTPPOZFZ.js";import{a as e,f as r,h as o,i as n}from"./chunk-SJH6G6HZ.js";m();var c=(s,p=["GET"])=>a=>{var t;return t=class extends n{static initProps(i){return r(this,null,function*(){return yield s(i)})}render(){return o(a,e({},this.props))}},t.methods=p,t};export{c as a};
