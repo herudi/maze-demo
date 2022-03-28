@@ -20,7 +20,7 @@ export default function App({ Page, props }: AppProps) {
         <link href="/assets/loading.css" rel="stylesheet" />
       </Helmet>
       <Navbar {...props} />
-      <div id="__MY_PAGE__"><Page {...props} /></div>
+      <div id="__MAZE_PAGE__"><Page {...props} /></div>
       <div id="loading" class="center-div-loading" style="display: none;">
         <div class="linear-progress-material">
           <div class="bar bar1"></div>

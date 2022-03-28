@@ -2,22 +2,21 @@
 import { h } from "nano-jsx";
 import { pages } from "./result/pages.ts";
 import RootApp from "./root_app.tsx";
-import config from "../config.ts";
+import config from "../maze.config.ts";
 import ErrorPage from "../pages/_default/error.tsx";
-import ClassicRouter from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.2/core/classic_router.tsx";
+import ClassicRouter from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.4/core/classic_router.tsx";
 
 async function lazy(url: string) {
   const mod = (await import(url)).default;
   return mod;
 }
-const { target_id, onHydrate, zones } = config as any;
 window.addEventListener("load", () => {
-  onHydrate();
+  if (config.onHydrate) config.onHydrate();
   let first = true;
   let init: any = document.getElementById("__INIT_DATA__");
   if (init) init = JSON.parse(init.textContent || "{}");
   const router = new ClassicRouter(ErrorPage);
-  const _pages = router.buildPages(location.pathname, zones, pages);
+  const _pages = router.buildPages(location.pathname, (config.zones || []) as string[], pages);
   for (let i = 0; i < _pages.length; i++) {
     const obj: any = _pages[i];
     router.add(obj.path, async (rev) => {
@@ -65,7 +64,7 @@ window.addEventListener("load", () => {
                 params: rev.params,
               }}
               isServer={false}
-            />, target_id
+            />, "__MAZE_PAGE__"
           );
         }
         if (RootApp.event.onEnd !== void 0) {

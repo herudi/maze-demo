@@ -1,5 +1,5 @@
 
-import { initApp as baseInitApp, NHttp, ReqEvent } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.2/core/server.ts";
+import { initApp as baseInitApp, NHttp, ReqEvent } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.4/core/server.ts";
 import ErrorPage from "../pages/_default/error.tsx";
 import ssr from "../pages/_default/ssr.tsx";
 import RootApp from "./root_app.tsx";
