@@ -1,7 +1,7 @@
-
-import { initApp as baseInitApp, NHttp, ReqEvent } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.4/core/server.ts";
+import { initApp as baseInitApp, NHttp, ReqEvent } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.5/core/server.ts";
 import ErrorPage from "../pages/_default/error.tsx";
-import ssr from "../pages/_default/ssr.tsx";
+import ssr from "../pages/_default/ssr.ts";
+import config from "../maze.config.ts";
 import RootApp from "./root_app.tsx";
 import apis from "./result/apis.ts";
 import { pages } from "./result/pages.ts";
@@ -24,6 +24,8 @@ export default (url: string, {
     meta_url: url,
     build_id: BUILD_ID,
     ssr: ssr,
-    static_config: staticConfig
+    static_config: staticConfig,
+    etag: config.etag,
+    cache_control: config.cache_control
   }, appCallback);
 };

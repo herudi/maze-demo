@@ -1,5 +1,4 @@
-/** @jsx h */
-import { h, Helmet, renderSSR } from "nano-jsx";
+import { Helmet, renderSSR } from "nano-jsx";
 import { setup } from 'twind'
 import { virtualSheet, getStyleTag } from 'https://cdn.skypack.dev/twind@0.16.16/sheets';
 import twind_config from "./../../twind.config.ts";

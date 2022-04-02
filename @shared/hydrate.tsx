@@ -3,15 +3,16 @@ import { h } from "nano-jsx";
 import { pages } from "./result/pages.ts";
 import RootApp from "./root_app.tsx";
 import config from "../maze.config.ts";
+import { onHydrate } from "../pages/_default/client.ts";
 import ErrorPage from "../pages/_default/error.tsx";
-import ClassicRouter from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.4/core/classic_router.tsx";
+import ClassicRouter from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.5/core/classic_router.tsx";
 
 async function lazy(url: string) {
   const mod = (await import(url)).default;
   return mod;
 }
 window.addEventListener("load", () => {
-  if (config.onHydrate) config.onHydrate();
+  onHydrate();
   let first = true;
   let init: any = document.getElementById("__INIT_DATA__");
   if (init) init = JSON.parse(init.textContent || "{}");

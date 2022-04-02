@@ -2,18 +2,18 @@
 import { Component, Fragment, h, Helmet, Router } from "nano-jsx";
 import { tw } from "twind";
 import { PageProps, InitProps } from "maze";
-import ErrorPage from "../_default/error.tsx";
 
 const { Link } = Router;
 
-@InitProps(async ({ fetchApi }) => {
-  const { data, error } = await fetchApi("/api/blog");
-  return { data, error };
+@InitProps(async () => {
+  const data = await (await fetch(
+    "https://jsonplaceholder.typicode.com/posts?_limit=10",
+  )).json();
+  return { data };
 })
 class Blog extends Component<PageProps> {
   
   render() {
-    if (this.props.error) return <ErrorPage {...this.props.error} />;
     return (
       <Fragment>
         <Helmet>
@@ -34,7 +34,7 @@ class Blog extends Component<PageProps> {
               {this.props.data.map((el: any) => (
                 <article class={tw`relative flex flex-col max-w-3xl lg:ml-auto xl:max-w-none xl:w-[50rem]`}>
                   <h3 class={tw`mb-4 text-xl tracking-tight font-bold dark:text-white`}>
-                    <Link to={"/blog/" + el.title}>{el.title}</Link>
+                    <Link to={"/blog/" + el.title.replace(/\s/g, "-")}>{el.title}</Link>
                   </h3>
                   <div class={tw`mb-6 dark:text-white`}>
                     <p>{el.body}</p>

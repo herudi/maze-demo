@@ -8,12 +8,12 @@ const style = {
     "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
 };
 
-@InitProps(async (rev) => {
-  if (rev.isServer && rev.request.method === "POST") {
-    const { data } = await rev.fetchApi("/api/sign");
+@InitProps(async ({ isServer, request, response, fetchApi }) => {
+  if (isServer && request.method === "POST") {
+    const { data } = await fetchApi("/api/sign");
     if (data.message === "success") {
       // if success will redirect to home
-      return rev.response.redirect("/");
+      return response.redirect("/");
     }
     return { message: data.message };
   }
