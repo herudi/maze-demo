@@ -21,4 +21,4 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "maze-ssr"
-          entrypoint: "./server.build.js"
+          entrypoint: "./server.ts"
