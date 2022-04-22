@@ -1,15 +1,19 @@
 import { Helmet, renderSSR } from "nano-jsx";
-import { setup } from 'twind'
-import { virtualSheet, getStyleTag } from 'https://cdn.skypack.dev/twind@0.16.16/sheets';
-import twind_config from "./../../twind.config.ts";
+import twind_config from "../../twind.config.ts";
+import { setup } from "https://esm.sh/twind@0.16.16";
+import {
+  shim,
+  virtualSheet,
+  getStyleTag
+} from "https://esm.sh/twind@0.16.16/shim/server";
 
-const sheet = virtualSheet() as any;
+const sheet = virtualSheet();
 
-setup({ ...twind_config, sheet });
+setup({ sheet, ...twind_config });
 
 export default function ssr(Component: any, mazeScript: string, opts: Record<string, any> = {}) {
   sheet.reset();
-  const app = renderSSR(Component, opts);
+  const app = shim(renderSSR(Component, opts));
   const { body, head, footer, attributes } = Helmet.SSR(app);
   const styleTag = getStyleTag(sheet);
   return `<!DOCTYPE html>

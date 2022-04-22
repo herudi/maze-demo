@@ -5,7 +5,7 @@ import RootApp from "./root_app.tsx";
 import config from "../maze.config.ts";
 import { onHydrate } from "../pages/_default/client.ts";
 import ErrorPage from "../pages/_default/error.tsx";
-import ClassicRouter from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.6/core/classic_router.tsx";
+import ClassicRouter from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.7/core/classic_router.tsx";
 
 async function lazy(url: string) {
   const mod = (await import(url)).default;

@@ -3,9 +3,13 @@ import { h, Helmet, Fragment } from "nano-jsx";
 import { AppProps, RequestEvent } from "maze";
 import Navbar from "../../components/navbar.tsx";
 
+const loading_view = `<div class="fixed top-0 left-0 right-0 z-10">
+<div class="w-full"><div class="animate-pulse flex"><div class="flex-1"><div class="h-0.5 bg-blue-700"></div></div></div></div>
+</div>`;
+
 function setLoading(bool: boolean) {
   const loading = document.getElementById("loading") as any;
-  loading.style.display = bool ? "block" : "none";
+  loading.innerHTML = bool ? loading_view : "";
 }
 
 export default function App({ Page, props }: AppProps) {
@@ -17,16 +21,10 @@ export default function App({ Page, props }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="data:," />
         <script src="/assets/theme.js"></script>
-        <link href="/assets/loading.css" rel="stylesheet" />
       </Helmet>
       <Navbar {...props} />
       <div id="__MAZE_PAGE__"><Page {...props} /></div>
-      <div id="loading" class="center-div-loading" style="display: none;">
-        <div class="linear-progress-material">
-          <div class="bar bar1"></div>
-          <div class="bar bar2"></div>
-        </div>
-      </div>
+      <div id="loading"></div>
     </Fragment>
   );
 }

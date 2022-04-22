@@ -1,5 +1,5 @@
-import maze from "./@shared/maze.ts";
+import maze from "./maze.ts";
 
-maze(import.meta.url).listen(8080, () => {
+maze.listen(8080, () => {
   console.log("> Running on http://localhost:8080");
 });

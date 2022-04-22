@@ -1,6 +1,5 @@
 /** @jsx h */
 import { Component, h, Router } from "nano-jsx";
-import { tw } from "twind";
 import { PageProps } from "maze";
 
 const { Link } = Router;
@@ -41,32 +40,32 @@ export default class Navbar extends Component<PageProps> {
     const pathname = _pathname || this.props.route.pathname;
     if (pathname === "/sign") return <div></div>;
     return (
-      <nav class={tw`bg-white lg:border-b dark:(bg-gray-800 lg:border-gray-900) sticky top-0 z-10`}>
-        <div class={tw`max-w-7xl mx-auto px-2 sm:px-6 lg:px-8`}>
-          <div class={tw`relative flex items-center justify-between h-16`}>
-            <div class={tw`flex-1 flex items-center justify-center sm:items-stretch sm:justify-start`}>
-              <div class={tw`sm:block sm:ml-6`}>
-                <div class={tw`flex space-x-4`}>
-                  <Link to="/" class={tw`${pathname === '/' ? active : in_active}`}>
+      <nav class="bg-white lg:border-b dark:(bg-gray-800 lg:border-gray-900) sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div class="relative flex items-center justify-between h-16">
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="sm:block sm:ml-6">
+                <div class="flex space-x-4">
+                  <Link to="/" class={pathname === '/' ? active : in_active}>
                     Home
                   </Link>
-                  <Link to="/blog" class={tw`${pathname.startsWith("/blog") ? active : in_active}`}>
+                  <Link to="/blog" class={pathname.startsWith("/blog") ? active : in_active}>
                     Blog
                   </Link>
-                  <Link to="/sign" class={tw`${in_active}`}>
+                  <Link to="/sign" class={in_active}>
                     Sign Form
                   </Link>
                 </div>
               </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <a class={tw`${in_active}`}
+              <a class={in_active}
                 href="https://github.com/herudi/maze"
                 target="_blank"
               >
                 Github
               </a>
-              <button style="width: 80px" onClick={this.onSwitch.bind(this)} class={tw`${btn_switch}`}>{this.text_switch}</button>
+              <button style="width: 80px" onClick={this.onSwitch.bind(this)} class={btn_switch}>{this.text_switch}</button>
             </div>
           </div>
         </div>
