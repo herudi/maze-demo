@@ -14,8 +14,8 @@ setup({ sheet, ...twind_config });
 export default function ssr(Component: any, mazeScript: string, opts: Record<string, any> = {}) {
   sheet.reset();
   const app = renderSSR(Component, opts);
+  shim(app);
   const { body, head, footer, attributes } = Helmet.SSR(app);
-  const _body = shim(body);
   const styleTag = getStyleTag(sheet);
   return `<!DOCTYPE html>
 <html ${attributes.html.toString()}>
@@ -24,7 +24,7 @@ export default function ssr(Component: any, mazeScript: string, opts: Record<str
     ${styleTag}
   </head>
   <body ${attributes.body.toString()}>
-    ${_body}
+    ${body}
     ${footer.join('')}${mazeScript}
   </body>
 </html>`
