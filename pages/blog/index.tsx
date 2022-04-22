@@ -43,7 +43,7 @@ class Blog extends Component<PageProps> {
                     </div>
                     <Link
                       to={"/blog/" + el.title.replace(/\s/g, "-")}
-                      class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100 dark:(bg-gray-900 text-gray-200)">
+                      class="px-6 py-2 text-sm font-semibold bg-blue-100 text-blue-600 dark:(bg-gray-900 text-gray-200)">
                       Read More
                     </Link>
                   </div>

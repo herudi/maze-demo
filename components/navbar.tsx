@@ -43,7 +43,7 @@ export default class Navbar extends Component<PageProps> {
       <nav class="bg-white lg:border-b dark:(bg-gray-800 lg:border-gray-900) sticky top-0 z-10">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div class="relative flex items-center justify-between h-16">
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="flex-1 flex items-center justify-start">
               <div class="sm:block sm:ml-6">
                 <div class="flex space-x-4">
                   <Link to="/" class={pathname === '/' ? active : in_active}>
@@ -59,12 +59,6 @@ export default class Navbar extends Component<PageProps> {
               </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <a class={in_active}
-                href="https://github.com/herudi/maze"
-                target="_blank"
-              >
-                Github
-              </a>
               <button style="width: 80px" onClick={this.onSwitch.bind(this)} class={btn_switch}>{this.text_switch}</button>
             </div>
           </div>

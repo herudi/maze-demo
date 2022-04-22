@@ -3,6 +3,7 @@ import { Component, h, Helmet, Fragment } from "nano-jsx";
 import { PageProps } from "maze";
 
 const style = {
+  gh_button: "text-gray-900 hover:bg-gray-300 hover:text-gray-900 dark:(text-gray-300 hover:bg-gray-700 hover:text-white) px-3 py-2 rounded-md text-sm font-medium",
   button: "text-2xl px-6 py-2 font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
 };
 
@@ -38,6 +39,14 @@ export default class Home extends Component<PageProps> {
               <button class={style.button} onClick={() => this.changeValue(-1)}>
                 -
               </button>
+              <div class="mt-10">
+                <a class={style.gh_button}
+                  href="https://github.com/herudi/maze"
+                  target="_blank"
+                >
+                 -= GITHUB =-
+                </a>
+              </div>
             </div>
           </div>
         </div>
