@@ -22,3 +22,12 @@ jobs:
         with:
           project: "maze-ssr"
           entrypoint: "./server.ts"
+      - name: Upload to Netlify
+        id: deploy-netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --build --prod
+          
