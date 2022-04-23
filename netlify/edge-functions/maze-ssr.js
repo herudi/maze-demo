@@ -1,5 +1,5 @@
 import maze from "../../maze.build.js";
 
-const github_asset_url = "https://raw.githubusercontent.com/herudi/maze-demo/master/public";
+console.log(new URL("public", import.meta.url).href);
 
-export default (request, context) => maze(github_asset_url).handleEvent({ request, context });
+export default (request, context) => maze.handleEvent({ request, context });
