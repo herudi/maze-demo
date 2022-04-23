@@ -1,5 +1,4 @@
-[build]
-  command = "mkdir -p netlify/edge-functions/public && cp -r public/* netlify/edge-functions/public"
+# copy assets => mkdir -p netlify/edge-functions/public && cp -r public/* netlify/edge-functions/public
 
 [[edge_functions]]
   function = "maze-ssr"
