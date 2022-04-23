@@ -1,4 +1,4 @@
-import { setup } from "https://esm.sh/twind@0.16.16/shim";
+import { setup } from "https://jspm.dev/twind@0.16.17/shim";
 import twind_config from "../../twind.config.ts";
 
 export function onHydrate() {
