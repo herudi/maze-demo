@@ -1,6 +1,3 @@
-[build]
-  publish = "public"
-
 [[edge_functions]]
   function = "maze-ssr"
   path = "/*"
