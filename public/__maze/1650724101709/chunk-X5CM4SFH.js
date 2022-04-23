@@ -1,0 +1,1 @@
+import{a as R}from"./chunk-5WE2SOL6.js";import{a as e,g as r,i as o,j as s}from"./chunk-EYK6LHUA.js";R();var m=(n,p=["GET"])=>a=>{var t;return t=class extends s{static initProps(i){return r(this,null,function*(){return yield n(i)})}render(){return o(a,e({},this.props))}},t.methods=p,t};export{m as a};
