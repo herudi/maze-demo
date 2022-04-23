@@ -5,5 +5,5 @@ export default async (request, context) => {
     if (asset.status !== 404) {
         return asset;
     }
-    return maze.handleEvent({ request, context });
+    return maze().handleEvent({ request, context });
 };
