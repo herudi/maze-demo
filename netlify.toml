@@ -1,4 +1,6 @@
-# copy assets => mkdir -p netlify/edge-functions/public && cp -r public/* netlify/edge-functions/public
+[build]
+  command = "echo No build for this site, we are living on the edge"
+  publish = "public"
 
 [[edge_functions]]
   function = "maze-ssr"
