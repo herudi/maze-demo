@@ -1,9 +1,11 @@
-import maze from "../../maze.build.js";
+import maze from "../../@shared/maze.ts";
 
-export default async (request, context) => { 
-    const asset = await context.rewrite(new URL(request.url).pathname);
-    if (asset.status !== 404) {
-        return asset;
-    }
-    return maze().handleEvent({ request, context });
-};
+const app = maze();
+
+app.use(async ({ context, url }, next) => {
+  const asset = await context.rewrite(url);
+  if (asset.status !== 404) return asset;
+  return next();
+});
+
+export default async (request, context) => app.handleEvent({ request, context });

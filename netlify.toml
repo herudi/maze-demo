@@ -1,5 +1,5 @@
 [build]
-  command = "echo No build for this site, we are living on the edge"
+  command = "deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.7/cli/build.ts"
   publish = "public"
 
 [[edge_functions]]
