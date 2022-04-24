@@ -1,6 +1,6 @@
 import maze from "../../@shared/maze.ts";
 
-const app = maze(import.meta.url);
+const app = maze();
 
 app.use(async ({ request, context, url }, next) => {
   if (request.method === 'GET') {
