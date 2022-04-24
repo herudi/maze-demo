@@ -8,4 +8,4 @@ app.use(async ({ context, url }, next) => {
   return next();
 });
 
-export default async (request, context) => app.handleEvent({ request, context });
+export default (request, context) => app.handleEvent({ request, context });
