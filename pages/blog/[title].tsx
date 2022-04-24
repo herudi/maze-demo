@@ -40,7 +40,7 @@ class BlogDetail extends Component<PageProps> {
               <p class="mb-20 dark:text-white">{this.props.data.body}</p>
               <Link
                 to={"/blog"}
-                class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100 dark:(bg-gray-900 text-gray-200)">
+                class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100 dark:bg-gray-900 dark:text-gray-200">
                 Back
               </Link>
             </div>
