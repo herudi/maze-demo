@@ -1,5 +1,5 @@
 [build]
-  command = "curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.7/cli/build.ts"
+  command = "curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/cli/build.ts"
   publish = "public"
 
 [[edge_functions]]
