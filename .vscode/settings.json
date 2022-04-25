@@ -4,6 +4,7 @@
   "deno.suggest.imports.hosts": {
     "https://deno.land": true,
     "https://esm.sh": true,
+    "https://jspm.dev": true,
     "https://cdn.skypack.dev": true
   },
   "deno.importMap": "./import_map.json"

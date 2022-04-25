@@ -20,7 +20,7 @@ export default function App({ Page, props }: AppProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="data:," />
-        <script src="/assets/theme.js"></script>
+        <script src="/static/assets/theme.js"></script>
       </Helmet>
       <Navbar {...props} />
       <div id="__MAZE_PAGE__"><Page {...props} /></div>

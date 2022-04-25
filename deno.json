@@ -14,7 +14,7 @@
   "fmt": {
     "files": {
       "exclude": [
-        "@shared/",
+        ".maze/",
         "public/",
         "server_prod.js"
       ]
@@ -23,11 +23,22 @@
   "lint": {
     "files": {
       "exclude": [
-        "@shared/",
+        ".maze/",
         "public/",
         "server_prod.js"
       ]
     }
   },
-  "importMap": "./import_map.json"
+  "importMap": "import_map.json",
+  "tasks": {
+    "dev": "maze dev",
+    "dev:reload": "maze dev --reload",
+    "start": "deno run -A --no-check ./.maze/server.ts",
+    "start:reload": "deno run -A --no-check --reload ./.maze/server.ts",
+    "build": "deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/cli/build.ts",
+    "build:reload": "deno run -A --no-check --reload https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/cli/build.ts",
+    "build:bundle": "deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/cli/build.ts --bundle",
+    "build:bundle:reload": "deno run -A --no-check --reload https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/cli/build.ts --bundle",
+    "clean": "maze clean"
+  }
 }

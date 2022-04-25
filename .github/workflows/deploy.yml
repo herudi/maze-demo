@@ -16,9 +16,9 @@ jobs:
         with:
           deno-version: 1.21.0
       - name: Build
-        run: deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/cli/build.ts
+        run: deno task build
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "maze-ssr"
-          entrypoint: "./server.ts"
+          entrypoint: "./.maze/server.ts"

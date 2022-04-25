@@ -1,13 +1,4 @@
-import maze from "../../@shared/maze.ts";
+import maze from "../../.maze/maze.ts";
+import midd from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/core/netlify-middleware.ts";
 
-const app = maze();
-
-app.use(async ({ request, context, url }, next) => {
-  if (request.method === 'GET') {
-    const asset = await context.rewrite(url);
-    if (asset.status !== 404) return asset;
-  }
-  return next();
-});
-
-export default (request, context) => app.handleEvent({ request, context });
+export default (request, context) => maze().use(midd).handleEvent({ request, context });
