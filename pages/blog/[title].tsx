@@ -1,23 +1,25 @@
 /** @jsx h */
 import { Component, Fragment, h, Helmet, Router } from "nano-jsx";
-import { PageProps, InitProps } from "maze";
+import { PageProps, InitPage } from "maze";
 import ErrorPage from "../_default/error.tsx";
 
 const { Link } = Router;
 
-@InitProps(async ({ params }) => {
-  const data = await (await fetch(
-    `https://jsonplaceholder.typicode.com/posts?title=${params.title.replace(/\-/g, " ")}`,
-  )).json();
-  if (!data[0]) {
-    return {
-      error: {
-        status: 404,
-        message: "blog not found"
+@InitPage({
+  props: async ({ params }) => {
+    const data = await (await fetch(
+      `https://jsonplaceholder.typicode.com/posts?title=${params.title.replace(/\-/g, " ")}`,
+    )).json();
+    if (!data[0]) {
+      return {
+        error: {
+          status: 404,
+          message: "blog not found"
+        }
       }
     }
+    return { data: data[0] };
   }
-  return { data: data[0] };
 })
 class BlogDetail extends Component<PageProps> {
 

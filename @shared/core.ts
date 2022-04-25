@@ -1,4 +1,4 @@
-import { initApp as baseInitApp } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.7/core/server.ts";
+import { initApp as baseInitApp } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/core/server.ts";
 import ErrorPage from "../pages/_default/error.tsx";
 import ssr from "../pages/_default/ssr.ts";
 import config from "../maze.config.ts";

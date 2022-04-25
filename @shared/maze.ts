@@ -1,5 +1,5 @@
 import core from "./core.ts";
-import { NHttp, ReqEvent } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.7/core/server.ts";
+import { NHttp, ReqEvent } from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/core/server.ts";
 
 export default (static_url?: string, {
   routerCallback,

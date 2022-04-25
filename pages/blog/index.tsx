@@ -1,14 +1,16 @@
 /** @jsx h */
 import { Component, Fragment, h, Helmet, Router } from "nano-jsx";
-import { PageProps, InitProps } from "maze";
+import { PageProps, InitPage } from "maze";
 
 const { Link } = Router;
 
-@InitProps(async () => {
-  const data = await (await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=10",
-  )).json();
-  return { data };
+@InitPage({
+  props: async () => {
+    const data = await (await fetch(
+      "https://jsonplaceholder.typicode.com/posts?_limit=10",
+    )).json();
+    return { data };
+  }
 })
 class Blog extends Component<PageProps> {
   
