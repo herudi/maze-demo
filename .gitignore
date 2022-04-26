@@ -1,3 +1,4 @@
 .maze
 .netlify
+dist
 node_modules
