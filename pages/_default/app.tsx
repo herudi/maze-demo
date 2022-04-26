@@ -2,6 +2,7 @@
 import { h, Helmet, Fragment } from "nano-jsx";
 import { AppProps, RequestEvent } from "maze";
 import Navbar from "../../components/navbar.tsx";
+import { BUILD_ID } from "../../maze.gen.ts";
 
 const loading_view = `<div class="fixed top-0 left-0 right-0 z-10">
 <div class="w-full"><div class="animate-pulse flex"><div class="flex-1"><div class="h-0.5 bg-blue-700"></div></div></div></div>
@@ -20,7 +21,7 @@ export default function App({ Page, props }: AppProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="data:," />
-        <script src="/static/assets/theme.js"></script>
+        <script src={"/static/assets/theme.js?v=" + BUILD_ID}></script>
       </Helmet>
       <Navbar {...props} />
       <div id="__MAZE_PAGE__"><Page {...props} /></div>
