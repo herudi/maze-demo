@@ -55,7 +55,7 @@ export default class Navbar extends Component<PageProps> {
             {
               this.text_switch && (
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button onClick={this.onSwitch.bind(this)} class={btn_switch}>{this.text_switch === "Dark" ? <svg
+                  <button onClick={this.onSwitch.bind(this)} class={btn_switch} aria-label="Dark mode switch">{this.text_switch === "Dark" ? <svg
                     class="w-5 h-5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
