@@ -8,5 +8,10 @@
   "license": "MIT",
   "dependencies": {
     "@cloudflare/kv-asset-handler": "~0.1.2"
+  },
+  "cache-control": {
+    "browserTTL": 172800,
+    "edgeTTL": 172800,
+    "bypassCache": false
   }
 }
