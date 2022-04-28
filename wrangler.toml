@@ -5,5 +5,5 @@ zone_id = ''
 usage_model = ''
 compatibility_flags = []
 workers_dev = true
-site = {bucket = "",entry-point = "workers-site"}
+site = {bucket = "public",entry-point = "workers-site"}
 compatibility_date = "2022-04-26"
