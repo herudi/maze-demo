@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "Maze starter cloudflare worker",
+  "main": "worker.js",
+  "author": "Herudi",
+  "license": "MIT"
+}
