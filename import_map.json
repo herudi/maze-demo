@@ -2,6 +2,6 @@
   "imports": {
     "nano-jsx": "https://deno.land/x/nano_jsx@v0.0.30/mod.ts",
     "nhttp": "https://deno.land/x/nhttp@1.1.11/mod.ts",
-    "maze": "https://raw.githubusercontent.com/herudi/maze/dev-0.0.8/mod.ts"
+    "maze": "https://raw.githubusercontent.com/herudi/maze/dev-0.0.9/mod.ts"
   }
 }
