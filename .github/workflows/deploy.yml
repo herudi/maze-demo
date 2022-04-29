@@ -19,7 +19,10 @@ jobs:
         run: deno task build
       - name: Deploy To Netlify
         uses: netlify/actions/build@master
+        with:
+          args: deploy --dir=public --build --prod
         env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           BUILD_DIR: public
