@@ -1,3 +1,7 @@
+[build]
+  command = "curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno run -A --no-check https://raw.githubusercontent.com/herudi/maze/dev-0.0.9/cli/build.ts"
+  publish = "public"
+
 [[edge_functions]]
   function = "maze-ssr"
   path = "/*"

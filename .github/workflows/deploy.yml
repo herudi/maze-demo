@@ -15,23 +15,14 @@ jobs:
         uses: denoland/setup-deno@main
         with:
           deno-version: 1.21.0
-      - name: Build Application
+      - name: Build
         run: deno task build
-      - name: Deploy To Netlify
-        uses: netlify/actions/build@master
+      - name: Deploy To Deno Deploy
+        uses: denoland/deployctl@v1
         with:
-          args: deploy --dir=public --build --prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          BUILD_DIR: public
-      # - name: Deploy to Deno Deploy
-      #   uses: denoland/deployctl@v1
-      #   with:
-      #     project: "maze-ssr"
-      #     entrypoint: "./.maze/server.ts"
-      # - name: Deploy To Cloudflare Workers
-      #   uses: cloudflare/wrangler-action@1.3.0
-      #   with:
-      #     apiToken: ${{ secrets.CF_API_TOKEN }}
+          project: "maze-ssr"
+          entrypoint: "./.maze/server.ts"
+      - name: Deploy To Cloudflare Workers
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
