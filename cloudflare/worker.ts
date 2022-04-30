@@ -3,7 +3,7 @@ import middleware from "https://raw.githubusercontent.com/herudi/maze/dev-0.0.9/
 
 // default cache
 const cache = {
-  browserTTL: null,
+  browserTTL: 2 * 60 * 60 * 24,
   edgeTTL: 2 * 60 * 60 * 24,
   bypassCache: false,
 }
