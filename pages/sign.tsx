@@ -33,7 +33,7 @@ class Sign extends Component<PageProps> {
           <div class="max-w-sm w-full space-y-8">
             <div>
               <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-                Sign Page Example
+                Sign Page
               </h2>
               <p class="text-center dark:text-white">(Example handle formData)</p>
               {this.props.message && (
